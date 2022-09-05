@@ -23,8 +23,8 @@
 }
 
 .back_button {
-  background-color: var(--grey);
-  color: var(--black);
+  background-color: var(--grey) !important;
+  color: var(--black) !important;
 }
 
 .log_or_register_container {
