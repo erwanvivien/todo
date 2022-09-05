@@ -8,6 +8,7 @@ import { sessionOptions } from "../prisma/utils";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useState } from "react";
+import Lnk from "../components/Lnk";
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
@@ -36,7 +37,9 @@ const LoginForm: React.FC = () => {
       <div />
       <div style={{ display: "flex", gap: 8 }}>
         <Button className={styles.button}>Log into</Button>
-        <Button className={styles.back_button}>Back</Button>
+        <Lnk href="/">
+          <Button className={styles.back_button}>Back</Button>
+        </Lnk>
       </div>
     </>
   );
@@ -68,7 +71,9 @@ const RegisterForm: React.FC = () => {
       <div />
       <div style={{ display: "flex", gap: 8 }}>
         <Button className={styles.button}>Register</Button>
-        <Button className={styles.back_button}>Back</Button>
+        <Lnk href="/">
+          <Button className={styles.back_button}>Back</Button>
+        </Lnk>
       </div>
     </>
   );
