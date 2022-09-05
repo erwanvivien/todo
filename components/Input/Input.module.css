@@ -1,0 +1,11 @@
+.input {
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: none;
+  height: 2.5em;
+  width: 100%;
+  background-color: var(--grey);
+  color: var(--black);
+}
