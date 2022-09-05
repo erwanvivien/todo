@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           Create and manage tasks
         </p>
 
-        <a className={styles.highlight} href="#">
+        <a className={styles.highlight} href="/me">
           Create your account and your first todo list
         </a>
       </main>

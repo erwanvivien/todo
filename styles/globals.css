@@ -18,4 +18,6 @@ a {
 :root {
   --primary: #0070f3;
   --white: white;
+  --black: black;
+  --grey: #d0e0e0;
 }

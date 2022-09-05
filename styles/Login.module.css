@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20vh;
+  /* align-items: center; */
+
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 300px;
+  width: 80%;
+
+  gap: 8px;
+}
+
+.title {
+  text-align: center;
+}
+
+.button,
+.back_button {
+  max-width: 120px;
+  text-align: center;
+}
+
+.back_button {
+  background-color: var(--grey);
+  color: var(--black);
+}
+
+.log_or_register_container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log_or_register {
+  display: flex;
+  width: 100%;
+
+  flex-direction: row;
+
+  cursor: pointer;
+}
+
+.log_or_register > * {
+  flex: 1;
+  padding: 0px 12px;
+}
+
+.log_or_register > *:nth-child(1) {
+  text-align: right;
+}
+.log_or_register > *:nth-child(2) {
+  border-left: solid 1px var(--grey);
+}
