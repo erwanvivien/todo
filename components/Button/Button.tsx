@@ -4,7 +4,10 @@ import styles from "./Button.module.css";
 const Input: React.FC<
   DetailedHTMLProps<InputHTMLAttributes<HTMLDivElement>, HTMLDivElement>
 > = (props) => {
-  return <div className={styles.button} {...props} />;
+  let className = styles.button;
+  if (props.className) className += " " + props.className;
+
+  return <div {...props} className={className} />;
 };
 
 export default Input;
