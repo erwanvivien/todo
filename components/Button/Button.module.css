@@ -1,0 +1,15 @@
+.button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: var(--white);
+
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out;
+}
+
+.button:active {
+  transform-origin: center;
+  transform: scale(0.95);
+}
