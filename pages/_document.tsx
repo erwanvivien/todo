@@ -10,8 +10,9 @@ import Document, {
 const desc = `Simple Todo List. Keep track of your tasks.
 Add, edit, delete, and mark as complete easily.`;
 
+const extensions = ["list", "app", "manager"];
 const keywords = ["todo", "to-do", "to do", "task"]
-  .flatMap((e) => [e, e + " list", e + " app", e + " manager"])
+  .flatMap((e) => [e, ...extensions.map((ext) => `${e} ${ext}`)])
   .join(", ");
 
 const MyDocument: NextPage = () => (
