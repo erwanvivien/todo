@@ -94,19 +94,24 @@ const Login: NextPage = () => {
   const setToRegister = () => setLogin("register");
 
   return (
-    <div className={styles.container}>
-      <div className={styles.log_or_register}>
-        <h3 style={styleLogin} onClick={setToLogin}>
-          Log In
-        </h3>
-        <h3 style={styleRegister} onClick={setToRegister}>
-          Register
-        </h3>
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.log_or_register}>
+          <h3 style={styleLogin} onClick={setToLogin}>
+            Log In
+          </h3>
+          <h3 style={styleRegister} onClick={setToRegister}>
+            Register
+          </h3>
+        </div>
+        <div className={styles.log_or_register_container}>
+          <LogOrReg />
+        </div>
       </div>
-      <div className={styles.log_or_register_container}>
-        <LogOrReg />
-      </div>
-    </div>
+    </>
   );
 };
 
