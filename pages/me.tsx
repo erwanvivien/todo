@@ -9,16 +9,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { useState } from "react";
 import Lnk from "../components/Lnk";
-
-type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
-
-const useInput = (initialValue: string) => {
-  const [value, setValue] = useState(initialValue);
-  const onChange = (e: ChangeEvent) => {
-    setValue(e.target.value);
-  };
-  return [value, onChange] as [string, typeof onChange];
-};
+import useInput from "../hooks/useInput";
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useInput("");
