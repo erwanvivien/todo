@@ -30,10 +30,10 @@
 
 .highlight {
   font-weight: 700;
+  font-size: 1.2rem;
 
-  color: var(--white);
-  background-color: var(--primary);
-  padding: 24px 32px;
-
-  border-radius: 16px;
+  color: var(--white) !important;
+  background-color: var(--primary) !important;
+  padding: 24px 32px !important;
+  border-radius: 16px !important;
 }
