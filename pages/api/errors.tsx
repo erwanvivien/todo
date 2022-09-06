@@ -6,6 +6,7 @@ import ApiMethod from "../../public/icons/api.svg";
 import DatabaseError from "../../public/icons/database-off.svg";
 import EmailError from "../../public/icons/at-off.svg";
 import UserError from "../../public/icons/user-exclamation.svg";
+import CircleCheck from "../../public/icons/circle-check.svg";
 
 let ERROR_IDS = {
   BACKEND_ERROR: 0,
@@ -25,6 +26,8 @@ let ERROR_IDS = {
   EMPTY_FORM: 300,
 
   DATABASE_READ: 900,
+
+  NO_ERROR: 1000,
 } as const;
 
 type ErrorKind = keyof typeof ERROR_IDS;
@@ -72,6 +75,8 @@ const ERROR_ICONS_SVG: IconsSVG = {
   EMPTY_FORM: (props) => <FormInput {...props} />,
 
   DATABASE_READ: (props) => <DatabaseError {...props} />,
+
+  NO_ERROR: (props) => <CircleCheck {...props} />,
 };
 
 const ERROR_ICONS: {
