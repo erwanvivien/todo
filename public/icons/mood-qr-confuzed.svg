@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <circle cx="12" cy="12" r="9" />
+    <path d="M9.5 16a10 10 0 0 1 6-1.5" />
+    <path stroke="none" fill="currentColor" style="transform: scale(0.55) translateX(47.5%) translateY(60%)"
+        d='M0,0h1v1h-1M1,0h1v1h-1M2,0h1v1h-1M3,0h1v1h-1M4,0h1v1h-1M5,0h1v1h-1M6,0h1v1h-1M14,0h1v1h-1M15,0h1v1h-1M16,0h1v1h-1M17,0h1v1h-1M18,0h1v1h-1M19,0h1v1h-1M20,0h1v1h-1M0,1h1v1h-1M6,1h1v1h-1M14,1h1v1h-1M20,1h1v1h-1M0,2h1v1h-1M2,2h1v1h-1M3,2h1v1h-1M4,2h1v1h-1M6,2h1v1h-1M14,2h1v1h-1M16,2h1v1h-1M17,2h1v1h-1M18,2h1v1h-1M20,2h1v1h-1M0,3h1v1h-1M2,3h1v1h-1M3,3h1v1h-1M4,3h1v1h-1M6,3h1v1h-1M14,3h1v1h-1M16,3h1v1h-1M17,3h1v1h-1M18,3h1v1h-1M20,3h1v1h-1M0,4h1v1h-1M2,4h1v1h-1M3,4h1v1h-1M4,4h1v1h-1M6,4h1v1h-1M14,4h1v1h-1M16,4h1v1h-1M17,4h1v1h-1M18,4h1v1h-1M20,4h1v1h-1M0,5h1v1h-1M6,5h1v1h-1M14,5h1v1h-1M20,5h1v1h-1M0,6h1v1h-1M1,6h1v1h-1M2,6h1v1h-1M3,6h1v1h-1M4,6h1v1h-1M5,6h1v1h-1M6,6h1v1h-1M14,6h1v1h-1M15,6h1v1h-1M16,6h1v1h-1M17,6h1v1h-1M18,6h1v1h-1M19,6h1v1h-1M20,6h1v1h-1' />
+</svg>
