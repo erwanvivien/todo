@@ -37,6 +37,14 @@ const signupApi: NextApiHandler<ApiResult> = async (req, res) => {
   }
 
   const { email, password, name }: Body = req.body;
+  if ([email.length, password.length, name.length].includes(0)) {
+    const errorJson = errorWrapper(
+      ERROR_IDS.EMPTY_FORM,
+      `[SignupAPI]: One of email (${email.length}), password (${password.length}) ` +
+        `or name (${name.length}) is empty`
+    );
+    return res.status(400).json(errorJson);
+  }
   if (name.length === 0) {
     const errorJson = errorWrapper(
       ERROR_IDS.NAME_EMPTY,

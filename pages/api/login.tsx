@@ -43,6 +43,14 @@ const loginApi: NextApiHandler<ApiResult> = async (req, res) => {
   }
 
   const { email, password }: PostBody = req.body;
+  if ([email.length, password.length].includes(0)) {
+    const errorJson = errorWrapper(
+      ERROR_IDS.EMPTY_FORM,
+      `[LoginAPI]: One of email (${email.length}), ` +
+        `password (${password.length}) is empty`
+    );
+    return res.status(400).json(errorJson);
+  }
   const matchingPassword = await UserService.checkPassword(email, password);
   if (!matchingPassword) {
     const errorJson = errorWrapper(
