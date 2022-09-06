@@ -29,10 +29,17 @@ const Home: NextPage<HomeProps> = ({ user }) => {
           Create and manage tasks
         </p>
 
-        {!user && (
+        {(!user && (
           <Lnk href="/me">
             <Button className={styles.highlight}>Log in</Button>
           </Lnk>
+        )) || (
+          <Button
+            className={styles.highlight}
+            onClick={() => fetch("/api/logout", { method: "POST" })}
+          >
+            Log out
+          </Button>
         )}
       </main>
     </div>
