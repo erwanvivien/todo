@@ -24,6 +24,20 @@ const LoginForm: React.FC = () => {
   const [email, setEmail] = useInput("");
   const [password, setPassword] = useInput("");
 
+  const login = async () => {
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <>
       <h2 className={styles.title}>Log into your account</h2>
@@ -36,7 +50,9 @@ const LoginForm: React.FC = () => {
       />
       <div />
       <div style={{ display: "flex", gap: 8 }}>
-        <Button className={styles.button}>Log into</Button>
+        <Button className={styles.button} onClick={login}>
+          Log into
+        </Button>
         <Lnk href="/">
           <Button className={styles.back_button}>Back</Button>
         </Lnk>
@@ -50,6 +66,22 @@ const RegisterForm: React.FC = () => {
   const [username, setUsername] = useInput("");
   const [password, setPass] = useInput("");
   const [passwordConf, setPassConf] = useInput("");
+
+  const register = async () => {
+    const res = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        name: username,
+        password,
+        passwordConf,
+      }),
+    });
+
+    const data = await res.json();
+    console.log(data);
+  };
 
   return (
     <>
@@ -70,7 +102,9 @@ const RegisterForm: React.FC = () => {
       />
       <div />
       <div style={{ display: "flex", gap: 8 }}>
-        <Button className={styles.button}>Register</Button>
+        <Button className={styles.button} onClick={register}>
+          Register
+        </Button>
         <Lnk href="/">
           <Button className={styles.back_button}>Back</Button>
         </Lnk>
@@ -123,7 +157,7 @@ const getServerSideProps = withIronSessionSsr(async ({ req }) => {
 
   return {
     props: {},
-    redirect: { destination: "/", statusCode: 303, permanent: false },
+    redirect: { destination: "/", permanent: false },
   };
 }, sessionOptions);
 

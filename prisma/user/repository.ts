@@ -7,7 +7,7 @@ import {
   UserReadSecrets,
   UserUpdate,
   UserUpdatePassword,
-} from "../types/user.types";
+} from "./type";
 import { prismaSanitize } from "../utils";
 
 import prismaClient from "../utils";
@@ -44,7 +44,9 @@ const userUpdate = async (user: UserUpdate): Promise<UserInfo | null> => {
   return await prismaSanitize(req);
 };
 
-const userUpdatePassword = async (user: UserUpdatePassword): Promise<UserInfo | null> => {
+const userUpdatePassword = async (
+  user: UserUpdatePassword
+): Promise<UserInfo | null> => {
   const req = async () =>
     await prismaClient.user.update({
       data: user,
@@ -66,7 +68,7 @@ const userRead = async (user: UserRead): Promise<UserInfo | null> => {
   }
 
   /// Single Id
-  if (user.id && typeof user.id === "number") {
+  if (user.id && typeof user.id === "string") {
     const req = async () =>
       await prismaClient.user.findUnique({
         where: { id: user.id },
@@ -92,7 +94,7 @@ const userReadSecrets = async (
   }
 
   /// Single Id
-  if (user.id && typeof user.id === "number") {
+  if (user.id && typeof user.id === "string") {
     const req = async () =>
       await prismaClient.user.findUnique({
         where: { id: user.id },
@@ -116,7 +118,7 @@ const userDelete = async (user: UserDelete): Promise<UserInfo | null> => {
   }
 
   /// Single Id
-  if (user.id && typeof user.id === "number") {
+  if (user.id && typeof user.id === "string") {
     const req = async () =>
       await prismaClient.user.delete({
         where: { id: user.id },

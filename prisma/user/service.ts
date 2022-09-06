@@ -1,6 +1,6 @@
 import crypto from "crypto";
-import UserRepository from "../repository/user.repository";
-import { UserUpdate, UserUpdatePassword } from "../types/user.types";
+import UserRepository from "./repository";
+import { UserUpdate } from "./type";
 
 const ITERATIONS = 1000;
 const HASH_LENGTH = 64;
