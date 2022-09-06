@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import ERROR_IDS, { ERROR_IDS_REV } from "./errors";
+import ERROR_IDS, { ErrorId, ERROR_IDS_REV } from "./errors";
 
 type ResData<T> = {
   status: number;
@@ -9,7 +9,7 @@ type ResData<T> = {
 
 type ResError = {
   status: number;
-  errorId: number;
+  errorId: ErrorId;
   success: false;
   message: string;
 };
@@ -22,7 +22,7 @@ const dataWrapper = <T>(data: T, status = 200): ResData<T> => ({
 
 const errorWrapper =
   process.env.NODE_ENV === "production"
-    ? (errorId: number, _: string, status: number = 400): ResError => {
+    ? (errorId: ErrorId, _: string, status: number = 400): ResError => {
         console.error(`[${status}][${ERROR_IDS_REV[errorId]}]: ` + _);
         return {
           status,
@@ -31,7 +31,7 @@ const errorWrapper =
           message: null as any,
         };
       }
-    : (errorId: number, message: string, status: number = 400): ResError => {
+    : (errorId: ErrorId, message: string, status: number = 400): ResError => {
         console.error(`[${status}][${errorId}]: ` + message);
         return {
           status,

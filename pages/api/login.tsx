@@ -12,8 +12,12 @@ import {
   mandatoryFields,
   tryReturn,
 } from "./utils";
+import { UserInfo } from "../../prisma/user/type";
 
-type Body = { email: string; password: string };
+import type { ResData, ResError } from "./utils";
+
+type ApiLoginPost = ResData<UserInfo> | ResError;
+type PostBody = { email: string; password: string };
 
 const loginApi: NextApiHandler<ApiResult> = async (req, res) => {
   if (req.method !== "POST") {
@@ -38,7 +42,7 @@ const loginApi: NextApiHandler<ApiResult> = async (req, res) => {
     return res.status(400).json(errorJson);
   }
 
-  const { email, password }: Body = req.body;
+  const { email, password }: PostBody = req.body;
   const matchingPassword = await UserService.checkPassword(email, password);
   if (!matchingPassword) {
     const errorJson = errorWrapper(
@@ -59,4 +63,5 @@ const loginApi: NextApiHandler<ApiResult> = async (req, res) => {
   });
 };
 
+export type { ApiLoginPost };
 export default withIronSessionApiRoute(loginApi, sessionOptions);
