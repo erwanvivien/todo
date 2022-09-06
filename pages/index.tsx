@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import Lnk from "../components/Lnk";
 import styles from "../styles/Home.module.css";
 
 const NotLoggedIn: React.FC = () => (
   <>
     <h1 className={styles.title}>
-      Welcome to <span className={styles.primary}>Todo</span>
+      Begin to <span className={styles.primary}>Do</span>
     </h1>
 
     <p className={styles.description}>
@@ -15,9 +15,9 @@ const NotLoggedIn: React.FC = () => (
       Create and manage tasks
     </p>
 
-    <a className={styles.highlight} href="/me">
+    <Lnk className={styles.highlight} href="/me">
       Create your account and your first todo list
-    </a>
+    </Lnk>
   </>
 );
 
