@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { withIronSessionSsr } from "iron-session/next";
 
-import styles from "../styles/Login.module.css";
+import styles from "../styles/Me.module.css";
 
 import { sessionOptions } from "../prisma/utils";
 import Input from "../components/Input";
@@ -10,10 +10,16 @@ import Button from "../components/Button";
 import { useState } from "react";
 import Lnk from "../components/Lnk";
 import useInput from "../hooks/useInput";
+import Router from "next/router";
+import ERROR_IDS, { ErrorId, ERROR_ICONS } from "./api/errors";
+import type { ApiLoginPost } from "./api/login";
+import Center from "../components/Center";
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useInput("");
   const [password, setPassword] = useInput("");
+
+  const [error, setError] = useState<ErrorId>(ERROR_IDS.NO_ERROR);
 
   const login = async () => {
     const res = await fetch("/api/login", {
@@ -25,9 +31,13 @@ const LoginForm: React.FC = () => {
       }),
     });
 
-    const data = await res.json();
+    const data: ApiLoginPost = await res.json();
     console.log(data);
+    if (data.success) Router.push("/");
+    if (!data.success) setError(data.errorId);
   };
+
+  const ErrorIcon = ERROR_ICONS[error];
 
   return (
     <>
@@ -48,11 +58,19 @@ const LoginForm: React.FC = () => {
           <Button className={styles.back_button}>Back</Button>
         </Lnk>
       </div>
+      {error && error !== ERROR_IDS.NO_ERROR && (
+        <Center style={{ color: "var(--red)" }}>
+          <ErrorIcon width="24" />
+          <span style={{ fontWeight: 600 }}>{error}</span>
+        </Center>
+      )}
     </>
   );
 };
 
 const RegisterForm: React.FC = () => {
+  const [error, setError] = useState<ErrorId>(ERROR_IDS.NO_ERROR);
+
   const [email, setEmail] = useInput("");
   const [username, setUsername] = useInput("");
   const [password, setPass] = useInput("");
@@ -70,9 +88,12 @@ const RegisterForm: React.FC = () => {
       }),
     });
 
-    const data = await res.json();
-    console.log(data);
+    const data: ApiLoginPost = await res.json();
+    if (data.success) Router.push("/");
+    if (!data.success) setError(data.errorId);
   };
+
+  const ErrorIcon = ERROR_ICONS[error];
 
   return (
     <>
@@ -100,6 +121,12 @@ const RegisterForm: React.FC = () => {
           <Button className={styles.back_button}>Back</Button>
         </Lnk>
       </div>
+      {error && error !== ERROR_IDS.NO_ERROR && (
+        <Center style={{ color: "var(--red)" }}>
+          <ErrorIcon width="24" />
+          <span style={{ fontWeight: 600 }}>{error}</span>
+        </Center>
+      )}
     </>
   );
 };
